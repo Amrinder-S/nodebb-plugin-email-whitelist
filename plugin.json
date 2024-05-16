@@ -1,0 +1,17 @@
+{
+	"id": "nodebb-plugin-email-whitelist",
+	"name": "Email Whitelist",
+	"description": "Whitelist mode for emails which can register",
+    "url": "https://github.com/Amrinder-S/nodebb-plugin-email-whitelist",
+    "library": "./library.js",
+    "templates": "templates",
+    "hooks": [
+    	{"hook": "static:app.load", "method": "load"},
+        {"hook": "filter:admin.header.build", "method": "admin.menu"},
+        {"hook": "filter:user.saveEmail", "method": "onEmailSave"},
+        {"hook": "filter:user.updateProfile", "method": "filterEmailUpdate"}
+    ],
+	"modules": {
+		"../admin/plugins/email-whitelist.js": "./static/lib/admin.js"
+	}
+}
